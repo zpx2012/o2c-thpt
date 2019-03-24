@@ -1,6 +1,7 @@
 if [ -z "$1" ]
   then
     echo "No argument supplied"
+    exit 1
 fi
 sudo apt-get update
 sudo apt-get install -y git
