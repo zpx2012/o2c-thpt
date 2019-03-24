@@ -1,8 +1,9 @@
 #!/bin/bash
-chmod 400 ~/.ssh/id_rsa
-outd=/data/pzhu/st-data/$(hostname)
-ssh -oStrictHostKeyChecking=no pzhu011@terran.cs.ucr.edu mkdir -p $outd
+cd ~/o2c-thpt
+chmod 400 tmp_rsa
+outd=/data/tmp/st-data/$(hostname)
+ssh -oStrictHostKeyChecking=no -i tmp_rsa tmp@terran.cs.ucr.edu mkdir -p $outd
 while true; do
-    rsync -avzS --progress --remove-source-files ~/sanity_test/rs/* pzhu011@terran.cs.ucr.edu:$outd/
-    sleep 3600
+    rsync -avzS --progress --remove-source-files rs/* pzhu011@terran.cs.ucr.edu:$outd/
+    sleep 600
 done

@@ -4,7 +4,7 @@ port=$2
 hm=$3
 role=$4
 inf=`ip route get 8.8.8.8 | head -n1 | awk -- '{print $5x}'`
-outdir=~/sanity_test/rs/tcpdump_$(date -u +%m%d)
+outdir=~/o2c-thpt/rs/tcpdump_$(date -u +%m%d)
 outfile=tcpdump_${hm}_$(hostname)_$(date -u +%m%d%H%M)_client.pcap
 if [[ $role == s ]]; then
     outfile=tcpdump_$(hostname)_${hm}_$(date -u +%m%d%H%M)_server.pcap
