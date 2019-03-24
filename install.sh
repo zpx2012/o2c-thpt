@@ -6,4 +6,3 @@ mkdir ~/o2c-thpt/rs/
 cd ~/o2c-thpt/
 git submodule update --init --recursive
 cd ~/o2c-thpt/mtr-insertion/ ; ./install.sh 
-cd ~/o2c-thpt/mtr-modified/ ; ./install.sh 
