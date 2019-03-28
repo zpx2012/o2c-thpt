@@ -11,7 +11,7 @@ st_out=`date --date="$st_in" -u +"%m%d%H%M"`
 st_sec=`date --date="$st_in" +"%s"`
 mtr=~/o2c-thpt/mtr-insertion/mtr
 
-cd ~/o2c-thpt/o2c
+cd ~/o2c-thpt/
 dfile=node${node_i}_day${today}.csv
 cat $dfile | while IFS=' ' read ip hn dp sp; do
     screen -dmS td_$hn bash ~/o2c-thpt/tcpdump_whole.sh $ip $dp $hn c
