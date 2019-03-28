@@ -12,7 +12,7 @@ st_sec=`date --date="$st_in" +"%s"`
 mtr=~/o2c-thpt/mtr-insertion/mtr
 
 cd ~/o2c-thpt/
-dfile=node${node_i}_day${today}.csv
+dfile=data/node${node_i}_day${today}.csv
 cat $dfile | while IFS=' ' read ip hn dp sp; do
     screen -dmS td_$hn bash ~/o2c-thpt/tcpdump_whole.sh $ip $dp $hn c
     screen -dmS curl_$hn python ~/o2c-thpt/curl_downloader_resume.py "http://$ip/my.pcap" $ip $hn 0 750k 0 $sp ${st_out}utc
@@ -25,7 +25,7 @@ bash ~/o2c-thpt/ks.sh td
 bash ~/o2c-thpt/ks.sh curl
 
 for ((day_i=today+1; day_i<4; day_i++)); do
-    dfile=node${node_i}_day${day_i}.csv
+    dfile=data/node${node_i}_day${day_i}.csv
     cat $dfile | while IFS=' ' read ip hn dp sp; do
         screen -dmS td_$hn bash ~/o2c-thpt/tcpdump_whole.sh $ip $dp $hn c
         screen -dmS curl_$hn python ~/o2c-thpt/curl_downloader.py "http://$ip/my.pcap" $ip $hn 0 750k 0 $sp
